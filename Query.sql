@@ -22,3 +22,16 @@ CREATE TABLE matches (
             match_status IN ('Available', 'Selling Fast', 'Sold Out', 'Postponed')
         )
 );
+
+---3. CREATE BOOKINGS TABLE
+CREATE TABLE bookings (
+    booking_id INT PRIMARY KEY,
+    user_id INT NOT NULL
+        REFERENCES users (user_id),
+    match_id INT NOT NULL
+        REFERENCES matches (match_id),
+    seat_number VARCHAR(20),
+    payment_status VARCHAR(20)
+        CHECK (payment_status IN ('Pending', 'Confirmed', 'Cancelled', 'Refunded')),
+    total_cost NUMERIC(10, 2) NOT NULL
+);
