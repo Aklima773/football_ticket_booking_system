@@ -35,3 +35,13 @@ CREATE TABLE bookings (
         CHECK (payment_status IN ('Pending', 'Confirmed', 'Cancelled', 'Refunded')),
     total_cost NUMERIC(10, 2) NOT NULL
 );
+
+
+-- DATA SEEDING: INSERT SAMPLE DATA INTO USERS
+
+INSERT INTO users (user_id, full_name, email, role, phone_number)
+VALUES
+    (1, 'Tanvir Rahman', 'tanvir@mail.com', 'Football Fan', '+8801711111111'),
+    (2, 'Asif Haque', 'asif@mail.com', 'Football Fan', '+8801722222222'),
+    (3, 'Sajjad Rahman', 'sajjad@mail.com', 'Ticket Manager', '+8801733333333'),
+    (4, 'Jannat Ara', 'jannat@mail.com', 'Football Fan', NULL);
